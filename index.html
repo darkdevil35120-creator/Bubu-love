@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Bubu 🌸 — From Kushagra Tyagi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --pink: #ffe6f0;
+      --accent: #ff6fa3;
+      --card: #fff7fb;
+      --shadow: rgba(255,111,163,0.15);
+    }
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,var(--pink),#fff9fb);color:#333}
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
+    .card{background:var(--card);border-radius:20px;padding:28px;max-width:760px;width:100%;box-shadow:0 8px 30px var(--shadow);border:1px solid rgba(255,111,163,0.06)}
+    header{display:flex;align-items:center;gap:16px}
+    .avatar{width:84px;height:84px;border-radius:24px;background:linear-gradient(135deg,#ffd9e8,#fff0f6);display:flex;align-items:center;justify-content:center;font-size:34px}
+    h1{margin:0;font-size:22px;color:var(--accent)}
+    p.lead{margin-top:14px;font-size:15px;line-height:1.6}
+    .flowers{font-size:20px;opacity:0.95}
+    .nicknames{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .chip{background:rgba(255,111,163,0.08);padding:8px 12px;border-radius:999px;font-weight:600;color:var(--accent);border:1px solid rgba(255,111,163,0.06)}
+    .hug-area{margin-top:18px;display:flex;gap:12px;align-items:center}
+    button.hug{background:linear-gradient(90deg,var(--accent),#ff8fbd);border:none;color:white;padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(255,111,163,0.18)}
+    .gif-wrap{width:120px;height:120px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#fff,#fff0f6);display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,0.03)}
+    .credits{font-size:12px;color:#8b8b8b;margin-top:12px}
+    @media (max-width:520px){.card{padding:20px}.avatar{width:68px;height:68px;font-size:28px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card">
+      <header>
+        <div class="avatar">💖</div>
+        <div>
+          <h1>For <span style="color:#ff3f7a">Bubu Kuchu Puchu Bacchu Jann</span> — my teddy bear</h1>
+          <div class="flowers">🌸🌺🌼🌷🌹🌸🌼🌷</div>
+        </div>
+      </header>
+
+      <p class="lead">My sweetest Bubu Kuchu Puchu Bacchu Jann, every time I think about you my heart feels like it’s learning a new language — one made of soft smiles, warm butterflies and tiny quiet moments that only belong to us. You make the ordinary feel magical: a late message becomes a sunrise, a silly sticker becomes poetry, and the way you tease me and call me <strong>bb</strong> makes me fall for you a little more each day. I keep your laughter in my pocket and your words written on the inside of my chest. When I say I love you, I mean every small thing — every joke we share, every late night we talk, every silly nickname you give me. I am yours — your Kushagra Tyagi — and I will always be here to listen, to laugh, to kiss your forehead in words, and to hold you close even when we’re miles apart. For you I would fill whole fields with flowers, stitch together little teddy bears and write your name in the sky. You are my home, my secret, my smile. Forever and always, your boy. 🌸🥺🐻</p>
+
+      <div class="nicknames" aria-hidden>
+        <div class="chip">bubu</div>
+        <div class="chip">kuchu</div>
+        <div class="chip">puchu</div>
+        <div class="chip">bacchu</div>
+        <div class="chip">jann</div>
+        <div class="chip">teddy</div>
+        <div class="chip">my bb</div>
+      </div>
+
+      <div class="hug-area">
+        <button class="hug" id="hugBtn">Tap for HUG 🤗</button>
+        <div class="gif-wrap" id="gifWrap" title="Tap the button to hug">
+          <!-- placeholder static teddy -->
+          <img id="hugGif" src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" alt="teddy hug" style="width:100%;height:100%;object-fit:cover;display:none"/>
+          <div id="placeholder" style="font-size:32px;opacity:0.9">🐻🤍🐻</div>
+        </div>
+      </div>
+
+      <div class="credits">Made with love by <strong>Kushagra Tyagi</strong>. Replace the hug GIF URL in the HTML if you prefer a different animation.</div>
+    </article>
+  </div>
+
+  <script>
+    const btn = document.getElementById('hugBtn')
+    const gif = document.getElementById('hugGif')
+    const placeholder = document.getElementById('placeholder')
+
+    let hugged = false
+    btn.addEventListener('click', ()=>{
+      if(!hugged){
+        placeholder.style.display = 'none'
+        gif.style.display = 'block'
+        // ensure gif plays from start
+        gif.src = gif.src.split('#')[0] + '?_=' + Date.now()
+        btn.textContent = 'More HUGS ❤️'
+        hugged = true
+      } else {
+        // brief pulse effect
+        btn.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:300})
+      }
+    })
+  </script>
+</body>
+</html>
